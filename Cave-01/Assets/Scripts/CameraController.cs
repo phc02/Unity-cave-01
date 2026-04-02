@@ -15,6 +15,6 @@ public class CameraController : MonoBehaviour
         mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         player.Rotate(Vector3.up * mouseX);
-        trasform.localRotation = Quaternion.Euler(-mouseY,0,0)
+        trasform.localRotation = Quaternion.Euler(-mouseY,0,0);
     }
 }
