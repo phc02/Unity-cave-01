@@ -75,13 +75,23 @@ public class CaveTouchToRay : MonoBehaviour
             Debug.Log($"✅ 命中物体: {hit.collider.name}");
 
             var target = hit.collider.GetComponent<Tuiocr_Disappear>();
+            var branch = hit.collider.GetComponent<BranchPickup>();
+            var fire = hit.collider.GetComponent<CampfireController>();
+            if (branch != null)
+            {
+                branch.Hit = true;
+            }
+            if (fire != null)
+            {
+                fire.Hit = true;
+            }
             if (target != null)
             {
                 target.Hit = true;
             }
             else
             {
-                Debug.LogWarning("⚠️ 命中了，但没有 Tuiocr_Disappear 脚本");
+                Debug.LogWarning("⚠️ 命中了，但没有脚本");
             }
         }
         else
