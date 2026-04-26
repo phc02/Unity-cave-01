@@ -77,6 +77,11 @@ public class CaveTouchToRay : MonoBehaviour
             var target = hit.collider.GetComponent<Tuiocr_Disappear>();
             var branch = hit.collider.GetComponent<BranchPickup>();
             var fire = hit.collider.GetComponent<CampfireController>();
+            var door = hit.collider.GetComponent<DoorController>();
+            if (door != null)
+            {
+                door.Hit = true;
+            }
             if (branch != null)
             {
                 branch.Hit = true;
